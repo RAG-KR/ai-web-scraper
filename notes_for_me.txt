@@ -1,0 +1,45 @@
+we use streamlit for the frontend
+selenium for the web scraping
+langchain for calling the ai and having it parse through our data
+not using conda using pythons inbuilt venv using the command 'python3 -m venv ai_web_scraper'
+activate the venv using the command 'source <venv_name>/bin/activate'
+as usual there are dependency errors i will continue lets see what happens
+
+step1 : create a simple streamlit userface(interface)
+step2 : grab data from the website that we want to scrape using selenium.
+(this selenium allows us to automate the web browser so that we can navigate through
+a web browser)
+step3 : now that we have all teh reqd content , we can filter it and pass it to a 
+required llm
+step4 : we can use the llm to parse through the data and give us some meaningful data or info
+
+
+
+ok stramlit is super easy to use and its sickkkkk you have to run 'streamlit run <main.py>' and it just magically runs on the web like node or some other server
+
+now we make a seperate scrape.py to use selenium to scrape the website
+we will import modules and classes of selenium and go on to take the website url and return all the contents of that url
+we can later connect this app to captas ip bans and other blocks that we may commonly encounter
+
+selenium allows us to do things like click buttons and scroll and stuff so that we can control the web browser
+
+so i had to install chrome driver. to be able to control chrome it was pretty easy with the link he provided and then i had to update chrome to latest version from chrome official website i just installed new .deb file on top of existing one and then im able to scrape the html with the script
+
+now the problem with this is that many websites like amazon etc can detect when you use bots with various things which can be annoying when you want to deploy the app or make it a product so we are using a serveice which is his sponsor to get around this
+
+on their website i had to create an instance of the scraping browser which has a captcha solver and stuff and this website charges you man damn.
+obviously they want to take ur card info which i cant do for my life
+
+so i wrote functions following him to remove the tags from the html , remove the \n and join the string acc to that. absically cleaning the whole thing to parse into the llm
+
+no i will create it into batches and make the llm parse it. as the llm can only parse a certain amount at a time. as there is a token limit for the llm
+
+the streamlit docs is suickk yiou can see that and nicely get an idea of how to do and what to do? there is also a cheatsheet for streamlit things that ive saved in brave as a bookmark to use in the future , streamlit is sickkkk though no js bs or headache
+
+for the llm part , you need to use langchain to connect llm to py code for ollama , <'from langchain_ollama import OllamaLLM'> this import can be done and the local llm can be used
+
+you call the llm using chain.invoke ,  you create a chain using chain = model | chain thing then you can call the model on your prompt passing it nesessary information
+
+in the print function of the python language ,  you can embed variables directly in the string if and only if and when you use the f string that looks something like print(f'enter the text here')
+
+
